@@ -12,3 +12,4 @@
 *.md
 *_cache/
 .Rproj.user
+*.Rproj
