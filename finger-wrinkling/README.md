@@ -1,0 +1,5 @@
+# FingerWrinkling [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.32002.svg)](http://dx.doi.org/10.5281/zenodo.32002)
+Undergrad project comparing autonomic finger-skin wrinkling by hand emersion in water to the application of local anaesthetic cream to the fingertips
+
+## License
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">FingerWinkling</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Peter Kamerman</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/kamermanpr/FingerWrinkling.git" rel="dct:source">https://github.com/kamermanpr/FingerWrinkling.git</a>.

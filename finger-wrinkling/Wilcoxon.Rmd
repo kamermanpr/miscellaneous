@@ -1,0 +1,63 @@
+---
+title: "Finger Winkling Data"
+author: "Peter Kamerman"
+date: "15 October 2015"
+output: html_document
+---
+## Import and check the grading data
+```{r read.data, echo=T, warning=F, message=F, results='asis', tidy=T, tidy.opts=list(width.cutoff=75)}
+# Read the data from "grading.csv" into R 
+data<-read.csv("grading.csv", header=T)
+
+# Check the data
+head(data)
+tail(data)
+str(data)
+
+# Data summary
+library(dplyr)
+library(knitr)
+summ<-data %>%
+    tbl_df() %>%
+    group_by(Time, Intervention) %>%
+    summarise(Median=median(WrinkleGrade), Quartile.25=quantile(WrinkleGrade, 0.25), Quartile.75=quantile(WrinkleGrade, 0.75))
+kable(summ, align='l', digits=1, format='markdown')
+
+```
+
+## Quick plot
+```{r plot, echo=T, warning=F, message=F, tidy=T, tidy.opts=list(width.cutoff=75)}
+# Set layout
+par(mfrow=c(2,2))
+par(mar=c(2,4,2,0))
+
+# time = 5 minutes
+boxplot(WrinkleGrade~Intervention, data=data[data$Time==5, ], xaxt='n', ylim=c(0,4), ylab="Score", main="5 minutes")
+# time = 10 minutes
+boxplot(WrinkleGrade~Intervention, data=data[data$Time==10, ], xaxt='n', ylim=c(0,4), main="10 minutes")
+# time = 20 minutes
+boxplot(WrinkleGrade~Intervention, data=data[data$Time==20, ], names=c("Anaesthetic", "Water"), ylim=c(0,4), ylab="Score", main="20 minutes")
+# time = 30 minutes
+boxplot(WrinkleGrade~Intervention, data=data[data$Time==30, ], names=c("Anaesthetic", "Water"), ylim=c(0,4), main="30 minutes")
+```
+
+## Statistical comparison at each time point
+- *Comparisons made using Wilcoxon signed-rank test*  
+- *p-values are corrected for multiple comparisons (Bonferroni method)*
+```{r data.analysis, echo=T, warning=F, tidy=T, tidy.opts=list(width.cutoff=75)}
+# Create a function that performs a Wilcoxon signed-rank test, and corrects for multiple comparisons 
+wilx<-function(dat=data, time=5) {
+    dat.2<-subset(dat, dat$Time==time)
+    w<-wilcox.test(WrinkleGrade~Intervention, paired=T, exact=F, data=dat.2)
+    w$p.value<-w$p.value*4
+    return(w)
+    }
+
+# Run the function at each time interval
+for(i in c(5,10,20,30)) {
+    w<-wilx(dat=data, time=i)
+    print(paste("time =", i, "minutes"))
+    print(w)
+}
+```
+
