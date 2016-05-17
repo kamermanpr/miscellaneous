@@ -319,7 +319,7 @@ So there you have it, the central limit theorem and the law of large numbers gra
 ## tl;dr
 
 #### GitHub
-You can grab the full _R script_ from  [GitHub](https://github.com/kamermanpr/miscellaneous/tree/master/central-limit-n-large-numbers).
+You can grab the full _R script_ from  [GitHub](https://github.com/kamermanpr/miscellaneous/tree/master/central-limit-n-large-numbers) or [Rstudio Connect](//beta.rstudioconnect.com/kamermanpr/central-limit-n-large-numbers/).
 
 #### ggplot2 extensions
 You can find more extensions for ggplot from [ggplot2 extensions](//www.ggplot2-exts.org/index.html).
