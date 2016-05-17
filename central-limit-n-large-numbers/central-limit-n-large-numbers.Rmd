@@ -316,7 +316,7 @@ So there you have it, the central limit theorem and the law of large numbers gra
 
 ****
 
-## Extras
+## tl;dr
 
 #### GitHub
 You can grab the full _R script_ from  [GitHub](https://github.com/kamermanpr/miscellaneous/tree/master/central-limit-n-large-numbers).
@@ -324,6 +324,8 @@ You can grab the full _R script_ from  [GitHub](https://github.com/kamermanpr/mi
 #### ggplot2 extensions
 You can find more extensions for ggplot from [ggplot2 extensions](//www.ggplot2-exts.org/index.html).
 
+#### Oops
+The little I know about stats is dangerous, so if you spot an error please let me know by submitting an [issue](https://github.com/kamermanpr/miscellaneous/issues) on GitHub.
 
 #### System imformation
 ```{r system, echo=TRUE, eval=TRUE}
